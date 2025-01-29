@@ -1,0 +1,109 @@
+// General styling for the whole page to reset any browser specific styling
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+// Body styling
+body {
+    background-color: #f4f4f4;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+// Header styling
+.header {
+    text-align: center;
+
+    &__greeting {
+        font-size: 1.5rem; // Smaller for mobile
+    }
+}
+
+// Todo App
+.todo {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%; // Default width for mobile
+    max-width: 400px; // Preventsit from getting too wide
+
+    &__form {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+    }
+
+    &__button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    &__list {
+        margin-top: 20px;
+        list-style: none;
+    }
+}
+
+// Footer styling
+.footer {
+    margin-top: 20px;
+    text-align: center;
+
+    &__message {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    &__fact {
+        font-style: italic;
+        color: #555555;
+    }
+}
+
+// Responsive design styling
+// Tablet view
+@media (min-width: 768px) {
+    .todo {
+        width: 70%;
+        max-width: 600px;
+    }
+
+    .header__greeting {
+        font-size: 2rem;
+    }
+}
+
+// Desktop view
+@media (min-width: 1024px) {
+    .todo {
+        width: 50%;
+        max-width: 800px;
+    }
+
+    .header__greeting {
+        font-size: 2.5rem;
+    }
+
+    .footer__message {
+        font-size: 1.2rem;
+    }
+}
