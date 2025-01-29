@@ -11,5 +11,21 @@ interface Todo {
     completed: boolean;
 }
 
-// This gets the todos from local storage so they persist after the page reloads
+// This gets the todos from local storage so they remain after the page reloads
 let todos: Todo[] = JSON.parse(localStorage.getItem("todos") || "[]");
+
+// this function will render the todos
+function renderTodos() {
+    todoList.innerHTML = "";
+    todos.forEach((todo) => {
+        const li = document.createElement("li");
+        li.classList.add("todo__item");
+        li.innerHTML = `
+            <span>${todo.text}</span>
+            <button data-id="${todo.id}" class="todo__delete">❌</button>
+        `;
+        todoList.appendChild(li);
+    });
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
