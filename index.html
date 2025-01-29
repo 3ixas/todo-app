@@ -4,10 +4,33 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Todo List</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+     <!-- Header Section-->
+     <header class="header">
+        <h1 class="header__greeting">Good Morning!</h1>
+     </header>
+
+     <!-- Main Todo App Section-->
+      <main class="todo">
+        <form class="todo__form" id="todo-form">
+            <input type="text" class="todo__input" id="todo-input" placeholder="Add a new todo..." required>
+            <button type="submit" class="todo__button">Add</button>
+        </form>
+
+        <!-- Todo List-->
+         <ul class="todo__list" id="todo-list">
+            <!-- Todos will be dynamically added here through TS-->
+         </ul>
+      </main>
+
+      <!-- footer Section-->
+       <footer class="footer">
+        <p class="footer_message" id="footer-message">Welcome! Have a great day.</p>
+        <p class="footer__fact" id="footer-fact">Did you know? Bananas are berries, but strawberries aren't.</p>
+       </footer>
+       
+       <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
