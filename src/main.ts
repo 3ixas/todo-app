@@ -96,3 +96,6 @@ todoList.addEventListener("click", (event) => {
         renderTodos();
     }
 });
+
+// Now that todos can be added and deleted, this will create the up to date list when the page loads
+renderTodos();
