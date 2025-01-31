@@ -8,7 +8,7 @@
 
 // Body styling
 body {
-    background-color: #f4f4f4;
+    background: linear-gradient(to right, #0300a7, #00939b);
     color: #333333;
     display: flex;
     flex-direction: column;
@@ -24,6 +24,7 @@ body {
 
     &__greeting {
         font-size: 1.5rem; // Smaller for mobile
+        color: #ffffff;
     }
 }
 
@@ -110,11 +111,12 @@ body {
     &__message {
         font-size: 1rem;
         font-weight: bold;
+        color: #ffffff;
     }
 
     &__fact {
         font-style: italic;
-        color: #555555;
+        color: #dcdcdc;
     }
 }
 
