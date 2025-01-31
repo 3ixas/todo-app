@@ -30,11 +30,12 @@ body {
 // Todo App
 .todo {
     background: #ffffff;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 30px;
+    border-radius: 16px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 90%; // Default width for mobile
-    max-width: 400px; // Prevents it from getting too wide
+    max-width: 450px; // Prevents it from getting too wide
+    margin: 40px auto;
 
     &__form {
         display: flex;
