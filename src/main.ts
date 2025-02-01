@@ -148,6 +148,31 @@ todoList.addEventListener("click", (event) => {
     }
 });
 
+// --------- RANDOM FACT API CALL ----------
+
+async function fetchRandomFact() {
+    const factElement = document.getElementById("footer-fact") as HTMLElement;
+
+    try {
+        // Fetch a random fact from the API
+        const response = await fetch("https://uselessfacts.jsph.pl/random.json?language=en");
+
+        // Convert the response into JSON
+        const data = await response.json();
+
+        // Update the footer text with the fetched fact
+        factElement.textContent = `Did you know? ${data.text}`;
+    } catch (error) {
+        console.error("Error fetching fact:", error);
+
+        // Display a fallback fact if the API fails
+        factElement.textContent = "Did you know? The Eiffel Tower can be 15cm taller during summer!";
+    }
+}
+
+// Run this function when the page loads
+document.addEventListener("DOMContentLoaded", fetchRandomFact);
+
 // Now that todos can be added and deleted, this will create the up to date list when the page loads
 renderTodos();
 
