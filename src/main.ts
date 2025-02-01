@@ -22,6 +22,35 @@ interface Todo {
 // JSON.parse() converts the stored JSON string back into a JS/TS array
 let todos: Todo[] = JSON.parse(localStorage.getItem("todos") || "[]");
 
+// ---------- DYNAMIC GREETING FUNCTION -----------
+
+function updateGreeting() {
+    const greetingElement = document.querySelector(".header__greeting") as HTMLHeadingElement | null;
+
+    if (!greetingElement) {
+        console.error("Error: .header__greeting not found in the DOM.");
+        return;
+    }
+
+    console.log("Greeting Element Found:", greetingElement); // Debugging
+
+    const hour = new Date().getHours();
+    console.log("Current Hour:", hour); // Debugging
+
+    let greeting = "Good Morning!";
+
+    if (hour >= 12 && hour < 18) {
+        greeting = "Good Afternoon!";
+    } else if (hour >= 18 || hour < 5) {
+        greeting = "Good Evening!";
+    }
+
+    greetingElement.textContent = greeting;
+}
+
+// Run this function only after DOM is fully loaded
+document.addEventListener("DOMContentLoaded", updateGreeting);
+
 // --------- RENDERING TODOS ----------
 
 // this function will render the todos
@@ -121,3 +150,6 @@ todoList.addEventListener("click", (event) => {
 
 // Now that todos can be added and deleted, this will create the up to date list when the page loads
 renderTodos();
+
+// Updates the greeting when the page loads
+updateGreeting();
