@@ -35,8 +35,15 @@ function renderTodos() {
         // Creates a new list item ('li') for the todo
         const li = document.createElement("li");
         li.classList.add("todo__item"); // Adds the SCSS styling
+
+        // Applies completed styling if the todo is marked as completed
+        if (todo.completed) {
+            li.classList.add("todo__item--completed")
+        }
+
         // Sets the inner HTML of the list item to display the todo text and a delete button 
         li.innerHTML = `
+            <input type="checkbox" class="todo__checkbox" data-id="${todo.id}" ${todo.completed ? "checked" : ""}>
             <span>${todo.text}</span>
             <button data-id="${todo.id}" class="todo__delete">❌</button>
         `;
@@ -49,6 +56,21 @@ function renderTodos() {
     // JSON.stringify() converts the array into a JSON string for storage
     localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+// Event listener to mark todos as completed
+todoList.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement;
+
+    // Check if the clicked element is a checkbox
+    if (target.classList.contains("todo__checkbox")) {
+        const id = Number(target.getAttribute("data-id"));
+        const todo = todos.find((t) => t.id === id);
+        if (todo) {
+            todo.completed = !todo.completed; // toggles the completed status
+            renderTodos();
+        }
+    }
+})
 
 // ------- ADDING NEW TODOS --------
 
